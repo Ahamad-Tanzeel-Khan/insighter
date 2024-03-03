@@ -7,7 +7,7 @@ export const navLinks = [
     },
     {
       label: "Scheduling",
-      route: "/schedule/add",
+      route: "/schedule",
       icon: "/assets/icons/schedule.svg",
       active: "/assets/active-icons/active-schedule.svg"
     },
@@ -22,6 +22,12 @@ export const navLinks = [
       route: "/analytics",
       icon: "/assets/icons/analytics.svg",
       active: "/assets/active-icons/active-analytics.svg"
+    },
+    {
+      label: "Add a Post",
+      route: "/schedule/add",
+      icon: "/assets/icons/add.svg",
+      active: "/assets/active-icons/active-add.svg"
     },
     {
       label: "Profile",

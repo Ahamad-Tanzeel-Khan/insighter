@@ -1,5 +1,5 @@
 import { SignedOut, SignedIn, UserButton } from "@clerk/clerk-react"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { navLinks } from "../../constants";
 import "./sidebar.css";
@@ -32,7 +32,7 @@ const Sidebar = () => {
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
-              {navLinks.slice(0,4).map((link) => {
+              {navLinks.slice(0,5).map((link) => {
                 const isActive = pathname === link.route;
 
                 return (
@@ -47,14 +47,14 @@ const Sidebar = () => {
             </ul>
 
             <ul className="sidebar-nav_elements" style={{alignItems: "center"}}>
-              {navLinks.slice(4).map((link) => {
+              {navLinks.slice(5).map((link) => {
                 const isActive = pathname === link.route;
 
                 return (
                   <li key={link.route} className="" style={{listStyle: "none", fontSize: "20px"}}>
                     <Link to={link.route} className='sidebar-link' >
-                      <img src={link.icon} alt={link.label} width={24} height={24}/>
-                      <span className="sidebar-label" style={{fontSize: "18px"}}>{link.label}</span>
+                      <img src={isActive ? link.active : link.icon} alt={link.label} width={24} height={24}/>
+                      <span className="sidebar-label" style={isActive ? {color: "#208dbf", fontWeight: "bold", fontSize: "18px"} : {color: "#fff", fontSize: "18px"}}>{link.label}</span>
                     </Link>
                   </li>
                 )
@@ -75,5 +75,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
-// className={isActive ? "active" : ""}

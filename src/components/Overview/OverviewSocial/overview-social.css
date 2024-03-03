@@ -1,0 +1,26 @@
+.overview-social{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 25px;
+    font-weight: normal;
+}
+.overview-social-name{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 15px
+}
+.overview-social-platform{
+    font-size: 12px;
+    color: #bdbdbd;
+    font-weight: normal;
+}
+.overview-followers-count{
+    font-size: 30px;
+    font-weight: bold
+}
+.overview-followers-text{
+    font-size: 10px;
+    color: #bdbdbd;
+}

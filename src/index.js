@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { ClerkProvider, RedirectToSignIn, SignIn, SignUp, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { ClerkProvider, SignIn, SignUp} from "@clerk/clerk-react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Overview from "./components/Overview/Overview";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
@@ -24,7 +25,7 @@ const ClerkWithRoutes = () => {
       navigate={(to) => navigate(to)}
     >
       <Routes>
-        <Route path="/" element={<Overview />} />
+        <Route path="/" element={<><Sidebar /><Overview /> </>} />
         <Route
           path="/sign-in/*"
           element={<SignIn redirectUrl={'/'} routing="path" path="/sign-in" />}
