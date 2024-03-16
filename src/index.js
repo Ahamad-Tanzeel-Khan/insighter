@@ -26,6 +26,7 @@ const ClerkWithRoutes = () => {
     >
       <Routes>
         <Route path="/" element={<><Sidebar /><Overview /> </>} />
+        <Route path="/schedule" element={<><Sidebar /></>} />
         <Route
           path="/sign-in/*"
           element={<SignIn redirectUrl={'/'} routing="path" path="/sign-in" />}

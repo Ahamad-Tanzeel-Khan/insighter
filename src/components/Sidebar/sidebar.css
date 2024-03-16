@@ -7,7 +7,8 @@
     background-color: white;
     padding: 1.25rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    background-color: #08151d;
+    /* background-color: #08151d; */
+    background-color: #0f121a;
     font-family: "Nunito", sans-serif;  
 }
 
@@ -105,4 +106,5 @@
     padding: 10px 15px;
     border-radius: 25px;
     color: #fff;
+    cursor: pointer;
 }

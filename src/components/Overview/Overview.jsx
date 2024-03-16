@@ -1,28 +1,52 @@
 import { UserButton } from '@clerk/clerk-react'
 import OverviewSocial from './OverviewSocial/OverviewSocial'
 import "./overview.css";
-import OverviewStatistics from './OverviewStatistics/OverviewStatistics';
+import OverviewStats from './OverviewStatistics/OverviewStats';
+import { Link } from 'react-router-dom';
+import MobileNav from '../MobileNav/MobileNav';
 
 const Overview = () => {
+
+  const conatiner = document.querySelector('.overview-container');
   return (
     <section className='overview-container'>
-      <header className='overview-header'>
-        <div style={{display: "flex", flexDirection: "column"}}>
-          <div style={{display: "flex", alignItems: "center", gap: "3rem"}}>
-            <h1 style={{fontSize: "30px" ,margin: "0"}}>Overview</h1>
-            <span style={{fontSize: "14px", color: "aliceblue"}}>All Accounts</span>
+      <header className='overview-header-container'>
+        <div className='overview-header'>
+          <div className='overview-header-content'>
+            <div className='overview-title'>
+              <h1>Overview</h1>
+              <span>All Accounts</span>
+            </div>
+            <span>Take a closer look at how your social media accounts are performing</span>
           </div>
-          <span style={{color: "#BDBDBD", fontSize: "14px"}}>Take a closer look at how your social media accounts are performing</span>
-        </div>
-        <div>
-          <UserButton afterSignOutUrl='/' />
+
+          {/* Mobile Nav */}
+          <div className='mobile-nav'>
+            <Link to='/'>
+              <img src="/assets/icons/logo.svg" alt="logo" width={150} height={70} />
+            </Link>
+          </div>
+
+          <div className='nav-left-content'>
+            <UserButton afterSignOutUrl='/' />
+            <div className='ham'>
+              <MobileNav />
+            </div>
+          </div>
         </div>
       </header>
+      <div className='overview-header-content-mobile'>
+        <div className='overview-title'>
+          <h1>Overview</h1>
+          <span>All Accounts</span>
+        </div>
+        <span>Take a closer look at how your social media accounts are performing</span>
+      </div>
       <section className='overview-social-handles'>
         <OverviewSocial />
       </section>
-      <section className='overview-statistics-container'>
-        <OverviewStatistics />
+      <section className='overview-statistics-main-container'>
+        <OverviewStats/>
       </section>
     </section>
   )

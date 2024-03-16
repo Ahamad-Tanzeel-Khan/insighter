@@ -1,33 +1,24 @@
 import { SignedOut, SignedIn, UserButton } from "@clerk/clerk-react"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { navLinks } from "../../constants";
 import "./sidebar.css";
 
 const Sidebar = () => {
 
-  const [pathname, setPathname] = useState(window.location.pathname);
+  const location = useLocation();
+  const [pathname, setPathname] = useState(location.pathname);
 
   useEffect(() => {
-    const handlePathnameChange = () => {
-      setPathname(window.location.pathname);
-    };
-
-    // Subscribe to the 'popstate' event to detect back/forward navigation
-    window.addEventListener('popstate', handlePathnameChange);
-
-    // Cleanup function
-    return () => {
-      window.removeEventListener('popstate', handlePathnameChange);
-    };
-  }, []);
+    setPathname(location.pathname);
+  }, [location]);
 
 
   return (
     <aside className="sidebar" >
       <div className="sidebar-container">
         <Link to='/'>
-          <img src="/assets/icons/logo3.svg" alt="logo" width={150} height={70} />
+          <img src="/assets/icons/logo.svg" alt="logo" width={150} height={70} />
         </Link>
         <nav className="sidebar-nav">
           <SignedIn>
@@ -38,7 +29,7 @@ const Sidebar = () => {
                 return (
                   <li key={link.route} className="sidebar-nav_element">
                     <Link to={link.route} className='sidebar-link' >
-                      <img src={isActive ? link.active : link.icon} alt={link.label} width={24} height={24} style={isActive ? {color: "#208dbf"} : {color: "#fff"}}/>
+                      <img src={isActive ? link.active : link.icon} alt={link.label} width={24} height={24} />
                       <span className="sidebar-label" style={isActive ? {color: "#208dbf", fontWeight: "bold"} : {color: "#fff"}}>{link.label}</span>
                     </Link>
                   </li>
