@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { navLinks } from "../../constants";
 import "./mobile-nav.css";
 import clsx from 'clsx';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
 
 const MobileNav = (props) => {
     const [isSideMenuOpen, setMenu] = useState(false);
@@ -75,20 +76,27 @@ const MobileNav = (props) => {
                                 className="close-icon"
                             />
                         </div>
-                        <ul className='header-nav_elements'>
-                            {navLinks.map((link) => {
-                                const isActive = link.route === pathname;
+                        <SignedIn>
+                            <ul className='header-nav_elements'>
+                                {navLinks.map((link) => {
+                                    const isActive = link.route === pathname;
 
-                                return (
-                                    <li key={link.route} className={`${isActive && 'gradient-text'} mobile-content`}>
-                                        <Link className='sidebar-link cursor-pointer' to={link.route}  style={isActive ? {color: "#208dbf", fontWeight: "bold"} : {color: "#fff"}}>
-                                            <img src={isActive ? link.active : link.icon} alt={link.label} width={24} height={24} />
-                                            {link.label}
-                                        </Link>
-                                    </li>
-                                )
-                            })}
-                        </ul>
+                                    return (
+                                        <li key={link.route} className={`${isActive && 'gradient-text'} mobile-content`}>
+                                            <Link className='sidebar-link cursor-pointer' to={link.route}  style={isActive ? {color: "#208dbf", fontWeight: "bold"} : {color: "#fff"}}>
+                                                <img src={isActive ? link.active : link.icon} alt={link.label} width={24} height={24} />
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </SignedIn>
+                        <SignedOut>
+                            <button className="login-btn-mobile">
+                                <Link to="/sign-in">Login</Link>
+                            </button>
+                        </SignedOut>
                     </section>
                 </div>
             </nav>

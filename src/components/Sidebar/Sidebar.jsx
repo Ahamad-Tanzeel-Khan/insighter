@@ -13,6 +13,15 @@ const Sidebar = () => {
     setPathname(location.pathname);
   }, [location]);
 
+  // const saveUserData = async () => {
+  //   try {
+  //     const response = await axios.post('/saveUserData', { /* Your user data here */ });
+  //     console.log('User data saved:', response.data);
+  //   } catch (error) {
+  //     console.error('Error saving user data:', error);
+  //   }
+  // };
+
 
   return (
     <aside className="sidebar" >
@@ -59,6 +68,12 @@ const Sidebar = () => {
 
             </ul>
           </SignedIn>
+
+          <SignedOut>
+            <button className="login-btn">
+              <Link to="/sign-in">Login</Link>
+            </button>
+          </SignedOut>
         </nav>
       </div>
     </aside>

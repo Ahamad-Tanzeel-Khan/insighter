@@ -5,7 +5,6 @@
     background: linear-gradient(to right, #141e30, #243b55);
     font-weight: normal;
     padding: 10px 60px;
-    position: relative;
 }
 .overview-header-container{
     background-color: #0f121a;
@@ -87,6 +86,9 @@
     .overview-header-container{
         border-radius: 0;
     }
+    .overview-header{
+        height: 80px;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -98,5 +100,6 @@
     }
     .overview-header{
         padding: 0 5px;
+        height: 80px;
     }
 }

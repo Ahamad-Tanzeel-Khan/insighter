@@ -44,7 +44,7 @@ const OverviewStats = () => {
         <div className="overview-statistics-info">
             <div className="overview-statistics-controls">
                 <img src="/assets/icons/calender.svg" alt="" height={20} width={20}/>
-                <select className="overview-time-select" value={selectedTime} onChange={handleTimeChange}>
+                <select className="overview-time-select" value={selectedTime} onChange={handleTimeChange} style={{cursor: "pointer"}}>
                     <option style={{background: "black"}} value="Today">Today</option>
                     <option style={{background: "black"}} value="Last-Week">Last Week</option>
                     <option style={{background: "black"}} value="1-Month">1 Month</option>
@@ -53,7 +53,7 @@ const OverviewStats = () => {
                     <option style={{background: "black"}} value="All-Time">All Time</option>
                 </select>
                 <img src={`/assets/social-icons/${selectedPlatform}.svg`} alt="" style={{marginLeft: "30px"}} height={20} width={20}/>
-                <select className="overview-time-select" value={selectedPlatform} onChange={handlePlatformChange}>
+                <select className="overview-time-select" value={selectedPlatform} onChange={handlePlatformChange} style={{cursor: "pointer"}}>
                     <option style={{background: "black"}} value="facebook">Facebook</option>
                     <option style={{background: "black"}} value="x">X</option>
                     <option style={{background: "black"}} value="instagram">Instagram</option>
